@@ -331,5 +331,23 @@ namespace TestProject2
             Assert.AreEqual("231", response.StatusCode.ToString());
             Assert.AreEqual("naruto152udzu@gmail.com", json["results"][0]["email"]?.ToString());
         }
+
+        [Test]
+        public void TestEmptyFieldMagicSearch()
+        {
+            HelperRequest request = new HelperRequest(_baseURL + "/magicsearch");
+
+            Dictionary<string, string> body = new Dictionary<string, string>
+            {
+                {"query",""}
+            };
+            request.SendPostRequest(body);
+
+            IRestResponse response = request.SendPostRequest(body);
+            JObject json = JObject.Parse(response.Content);
+
+            Assert.AreEqual("455", response.StatusCode.ToString());
+            Assert.AreEqual("Не найден обязательный параметр query", json["message"]?.ToString());
+        }
     }
 }
