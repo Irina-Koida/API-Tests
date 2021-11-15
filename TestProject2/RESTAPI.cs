@@ -281,5 +281,20 @@ namespace TestProject2
             Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
 
         }
+
+        [Test]
+        public void TestDeleteAvatar()
+        {
+            HelperRequest request = new HelperRequest(_baseURL + "/deleteavatar");
+            Dictionary<string, string> body = HelperData.ParamsUserData();
+           
+            request.SendPostRequest(body);
+
+            IRestResponse response = request.SendPostRequest(body);
+            JObject json = JObject.Parse(response.Content);
+
+            Assert.AreEqual("OK", response.StatusCode.ToString());
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        }
     }
 }
