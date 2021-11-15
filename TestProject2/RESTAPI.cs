@@ -185,7 +185,6 @@ namespace TestProject2
 
             Assert.AreEqual("OK", response.StatusCode.ToString());
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-
         }
 
         [Test]
@@ -232,7 +231,6 @@ namespace TestProject2
 
             Assert.AreEqual("InternalServerError", response.StatusCode.ToString());
             Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
-
         }
 
         [Test]
@@ -279,15 +277,16 @@ namespace TestProject2
 
             Assert.AreEqual("InternalServerError", response.StatusCode.ToString());
             Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
-
         }
 
         [Test]
-        public void TestDeleteAvatar()
+        public void TestDeleteAvatarValid()
         {
             HelperRequest request = new HelperRequest(_baseURL + "/deleteavatar");
-            Dictionary<string, string> body = HelperData.ParamsUserData();
-           
+            Dictionary<string, string> body = new Dictionary<string, string> 
+            {
+                {"email","naruto152udzu@gmail.com"}
+            };
             request.SendPostRequest(body);
 
             IRestResponse response = request.SendPostRequest(body);
@@ -298,12 +297,30 @@ namespace TestProject2
         }
 
         [Test]
+        public void TestDeleteAvatarInvalid()
+        {
+            HelperRequest request = new HelperRequest(_baseURL + "/deleteavatar");
+            Dictionary<string, string> body = new Dictionary<string, string> 
+            {
+                {"email",""}
+            };
+            request.SendPostRequest(body);
+
+            IRestResponse response = request.SendPostRequest(body);
+            JObject json = JObject.Parse(response.Content);
+
+            Assert.AreEqual("InternalServerError", response.StatusCode.ToString());
+            Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
+        }
+
+        [Test]
         public void TestMagicSearchByEmailValid()
         {
             HelperRequest request = new HelperRequest(_baseURL + "/magicsearch");
 
-            Dictionary<string, string> body = new Dictionary<string, string> {
-            {"query","naruto152udzu@gmail.com"}
+            Dictionary<string, string> body = new Dictionary<string, string> 
+            { 
+                {"query","naruto152udzu@gmail.com"}
             };
 
             request.SendPostRequest(body);
