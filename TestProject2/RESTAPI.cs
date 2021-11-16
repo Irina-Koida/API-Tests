@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using RestSharp;
-using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Threading;
 using TestProject2.Helper;
 using TestProject2.Model;
 
@@ -70,7 +68,7 @@ namespace TestProject2
             IRestResponse response = request.SendPostRequest(body);
             JObject json = JObject.Parse(response.Content);
 
-            Assert.AreEqual("InternalServerError", response.StatusCode.ToString());
+            Assert.AreEqual("Bad Request", response.StatusCode.ToString());
             Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
         }
 
@@ -85,7 +83,7 @@ namespace TestProject2
             IRestResponse response = request.SendPostRequest(body);
             JObject json = JObject.Parse(response.Content);
 
-            Assert.AreEqual("InternalServerError", response.StatusCode.ToString());
+            Assert.AreEqual("Bad Request", response.StatusCode.ToString());
             Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
         }
 
@@ -100,7 +98,7 @@ namespace TestProject2
                 company_type = "ООО",
                 company_users = new List<string>()
                 {
-                    "test_anna@gmail.com",
+                    "test_anna@gmail.com", 
                     "test_anna@gmail.com"
                 },
                 email_owner = "naruto152udzu@gmail.com"
@@ -126,7 +124,7 @@ namespace TestProject2
                 company_type = "ООО",
                 company_users = new List<string>()
                 {
-                    "amaterassy@gmail.com",
+                    "amaterassy@gmail.com", 
                     "akamelakill@gmail.com"
                 },
                 email_owner = "naruto152udzugmail.com"
@@ -137,8 +135,8 @@ namespace TestProject2
             IRestResponse response = request.SendPostRequest(company);
             JObject json = JObject.Parse(response.Content);
 
-            Assert.AreEqual("InternalServerError", response.StatusCode.ToString());
-            Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
+            Assert.AreEqual("Bad Request", response.StatusCode.ToString());
+            Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
         }
 
         [Test]
@@ -229,8 +227,8 @@ namespace TestProject2
             IRestResponse response = request.SendPostRequest(user);
             JObject json = JObject.Parse(response.Content);
 
-            Assert.AreEqual("InternalServerError", response.StatusCode.ToString());
-            Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
+            Assert.AreEqual("Bad Request", response.StatusCode.ToString());
+            Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
         }
 
         [Test]
@@ -275,8 +273,8 @@ namespace TestProject2
             IRestResponse response = request.SendPostRequest(user);
             JObject json = JObject.Parse(response.Content);
 
-            Assert.AreEqual("InternalServerError", response.StatusCode.ToString());
-            Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
+            Assert.AreEqual("Bad Request", response.StatusCode.ToString());
+            Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
         }
 
         [Test]
@@ -309,8 +307,8 @@ namespace TestProject2
             IRestResponse response = request.SendPostRequest(body);
             JObject json = JObject.Parse(response.Content);
 
-            Assert.AreEqual("InternalServerError", response.StatusCode.ToString());
-            Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
+            Assert.AreEqual("Bad Request", response.StatusCode.ToString());
+            Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
         }
 
         [Test]

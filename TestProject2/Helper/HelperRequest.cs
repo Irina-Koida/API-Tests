@@ -1,7 +1,4 @@
 ﻿using RestSharp;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 
 namespace TestProject2.Helper
 {
