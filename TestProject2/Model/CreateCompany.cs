@@ -2,8 +2,8 @@
 
 namespace TestProject2.Model
 {
-  public class CreateCompany
-  {
+    public class CreateCompany
+    {
         public string company_name { get; set; }
 
         public string company_type { get; set; }
@@ -11,5 +11,5 @@ namespace TestProject2.Model
         public List<string> company_users { get; set; }
 
         public string email_owner { get; set; }
-  }
+    }
 }

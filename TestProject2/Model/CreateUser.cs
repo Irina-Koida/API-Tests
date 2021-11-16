@@ -8,9 +8,9 @@ namespace TestProject2.Model
 
         public string name { get; set; }
 
-        public List<string> tasks { get; set; }
+        public List<int> tasks { get; set; }
 
-        public List<string> companies { get; set; }
+        public List<int> companies { get; set; }
 
         public string hobby { get; set; }
 

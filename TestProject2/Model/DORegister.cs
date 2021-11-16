@@ -1,7 +1,7 @@
 ﻿
 namespace TestProject2.Model
 {
-    class DORegister
+    public class DORegister
     {
         public string email { get; set; }
         public string name { get; set; }

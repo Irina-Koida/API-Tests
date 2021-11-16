@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TestProject2.Helper
 {
-   static public class HelperData
+    static public class HelperData
     {
         static public Dictionary<string, string> ParamsUserData()
         {
@@ -32,13 +32,12 @@ namespace TestProject2.Helper
 
         static public string GetNameRandom()
         {
-            return "Harry" + DateTime.Now.ToString("hhmmssMMddyy");
+            return "harry" + DateTime.Now.ToString("hhmmssMMddyy");
         }
 
         static public string GetEmailRandom()
         {
             return DateTime.Now.ToString("hhmmssMMddyy") + "@gmail.com";
         }
-
     }
 }

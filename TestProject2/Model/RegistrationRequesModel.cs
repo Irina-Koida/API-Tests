@@ -1,7 +1,7 @@
 ﻿
 namespace TestProject2.Model
 {
-    class RegistrationRequesModel
+    public class RegistrationRequesModel
     {
         public string email { get; set; }
 
@@ -15,6 +15,5 @@ namespace TestProject2.Model
             this.name = name;
             this.email = email;
         }
-
     }
 }

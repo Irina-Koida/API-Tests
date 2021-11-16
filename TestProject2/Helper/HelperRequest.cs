@@ -2,7 +2,7 @@
 
 namespace TestProject2.Helper
 {
-    class HelperRequest
+    public class HelperRequest
     {
         private IRestClient _client;
 
